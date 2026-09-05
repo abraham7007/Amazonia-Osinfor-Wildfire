@@ -1,0 +1,86 @@
+{
+  "modelo": "mobilenetv2_035",
+  "tflite": "modelo_float32.tflite",
+  "partner": "sdis-77",
+  "teselas_por_cuadro": 32,
+  "n_cuadros": 1200,
+  "reglas": {
+    "1_de_N": {
+      "umbral": 0.98,
+      "tp": 278,
+      "fp": 16,
+      "fn": 737,
+      "tn": 169,
+      "recall": 0.2739,
+      "precision": 0.9456,
+      "f1": 0.4248,
+      "fpr": 0.0865
+    },
+    "2_de_N_fpr0.1": {
+      "umbral": 0.71,
+      "tp": 371,
+      "fp": 18,
+      "fn": 644,
+      "tn": 167,
+      "recall": 0.3655,
+      "precision": 0.9537,
+      "f1": 0.5285,
+      "fpr": 0.0973
+    },
+    "2_de_N_fpr0.01": {
+      "umbral": 0.98,
+      "tp": 35,
+      "fp": 1,
+      "fn": 980,
+      "tn": 184,
+      "recall": 0.0345,
+      "precision": 0.9722,
+      "f1": 0.0666,
+      "fpr": 0.0054
+    },
+    "3_de_N_fpr0.1": {
+      "umbral": 0.54,
+      "tp": 275,
+      "fp": 16,
+      "fn": 740,
+      "tn": 169,
+      "recall": 0.2709,
+      "precision": 0.945,
+      "f1": 0.4211,
+      "fpr": 0.0865
+    },
+    "3_de_N_fpr0.01": {
+      "umbral": 0.85,
+      "tp": 58,
+      "fp": 1,
+      "fn": 957,
+      "tn": 184,
+      "recall": 0.0571,
+      "precision": 0.9831,
+      "f1": 0.108,
+      "fpr": 0.0054
+    },
+    "temporal_2": {
+      "umbral": 0.94,
+      "tp": 315,
+      "fp": 18,
+      "fn": 700,
+      "tn": 167,
+      "recall": 0.3103,
+      "precision": 0.9459,
+      "f1": 0.4674,
+      "fpr": 0.0973
+    },
+    "temporal_3": {
+      "umbral": 0.9,
+      "tp": 328,
+      "fp": 16,
+      "fn": 687,
+      "tn": 169,
+      "recall": 0.3232,
+      "precision": 0.9535,
+      "f1": 0.4827,
+      "fpr": 0.0865
+    }
+  }
+}

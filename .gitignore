@@ -1,0 +1,46 @@
+# El repositorio comparte solo el trabajo tecnico del piloto.
+#
+# Se excluye TODO por defecto y se vuelve a incluir lo que debe viajar. Es la
+# forma segura de hacerlo en una carpeta que tambien guarda CVs, cotizaciones,
+# convenios y 10 GB de dataset: si manana aparece una carpeta nueva, queda fuera
+# hasta que alguien decida lo contrario, en vez de subirse sin querer.
+#
+# Ojo: git NO admite comentarios al final de linea. Un "patron  # nota" deja de
+# ser un patron valido y no excluye nada. Cada comentario va en su propia linea.
+/*
+!/.gitignore
+!/README.md
+!/FIRMWARE/
+!/HARDWARE/
+!/MODELO-TINYML/
+!/DISEÑO E INGENIERIA/
+!/CONTEXTO DEL PROYECTO/
+
+# --- MODELO-TINYML pesa 12 GB en disco; viaja solo lo reproducible ---
+# 10 GB de Pyro-SDIS y de parches: se regenera con 01_descargar y 02_construir.
+MODELO-TINYML/datos/
+# 1,7 GB de entorno virtual.
+MODELO-TINYML/.venv/
+# 24 MB de trazas de entrenamiento.
+MODELO-TINYML/entrenamiento_*.log
+MODELO-TINYML/scripts/__pycache__/
+# Arreglos C de los modelos que no se despliegan: los regenera 04_cuantizar_tflite.py.
+MODELO-TINYML/modelos/mobilenetv2_035/modelo_humo_int8.cc
+MODELO-TINYML/modelos/cnn_pequena/modelo_humo_int8.cc
+
+# --- Contexto: solo el resumen; el MoU y el formulario COOPI no viajan ---
+CONTEXTO DEL PROYECTO/*
+!CONTEXTO DEL PROYECTO/Contexto del Proyecto.md
+
+# --- Artefactos de compilacion ---
+.pio/
+.pioenvs/
+build/
+*.o
+*.pyc
+__pycache__/
+
+# --- Ruido del sistema ---
+.DS_Store
+._*
+*~

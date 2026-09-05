@@ -1,0 +1,119 @@
+{
+  "modelo": "cnn_pequena",
+  "metas": {
+    "recall": 0.9,
+    "precision": 0.8,
+    "f1": 0.75,
+    "fpr": 0.1
+  },
+  "resultados": {
+    "val": {
+      "float32": {
+        "umbral_0.5": {
+          "umbral": 0.5,
+          "tp": 6228,
+          "fp": 5881,
+          "fn": 3056,
+          "tn": 9724,
+          "recall": 0.6708,
+          "precision": 0.5143,
+          "f1": 0.5822,
+          "fpr": 0.3769,
+          "exactitud": 0.6409
+        },
+        "operacion": {
+          "umbral": 0.745,
+          "tp": 2804,
+          "fp": 1545,
+          "fn": 6480,
+          "tn": 14060,
+          "recall": 0.302,
+          "precision": 0.6447,
+          "f1": 0.4114,
+          "fpr": 0.099,
+          "exactitud": 0.6776
+        }
+      },
+      "int8": {
+        "umbral_0.5": {
+          "umbral": 0.5,
+          "tp": 6252,
+          "fp": 5936,
+          "fn": 3032,
+          "tn": 9669,
+          "recall": 0.6734,
+          "precision": 0.513,
+          "f1": 0.5823,
+          "fpr": 0.3804,
+          "exactitud": 0.6397
+        },
+        "operacion": {
+          "umbral": 0.75,
+          "tp": 2715,
+          "fp": 1485,
+          "fn": 6569,
+          "tn": 14120,
+          "recall": 0.2924,
+          "precision": 0.6464,
+          "f1": 0.4027,
+          "fpr": 0.0952,
+          "exactitud": 0.6764
+        }
+      }
+    },
+    "cruzado": {
+      "float32": {
+        "umbral_0.5": {
+          "umbral": 0.5,
+          "tp": 3079,
+          "fp": 3256,
+          "fn": 329,
+          "tn": 3493,
+          "recall": 0.9035,
+          "precision": 0.486,
+          "f1": 0.632,
+          "fpr": 0.4824,
+          "exactitud": 0.647
+        },
+        "operacion": {
+          "umbral": 0.825,
+          "tp": 668,
+          "fp": 638,
+          "fn": 2740,
+          "tn": 6111,
+          "recall": 0.196,
+          "precision": 0.5115,
+          "f1": 0.2834,
+          "fpr": 0.0945,
+          "exactitud": 0.6674
+        }
+      },
+      "int8": {
+        "umbral_0.5": {
+          "umbral": 0.5,
+          "tp": 3082,
+          "fp": 3288,
+          "fn": 326,
+          "tn": 3461,
+          "recall": 0.9043,
+          "precision": 0.4838,
+          "f1": 0.6304,
+          "fpr": 0.4872,
+          "exactitud": 0.6442
+        },
+        "operacion": {
+          "umbral": 0.82,
+          "tp": 697,
+          "fp": 657,
+          "fn": 2711,
+          "tn": 6092,
+          "recall": 0.2045,
+          "precision": 0.5148,
+          "f1": 0.2927,
+          "fpr": 0.0973,
+          "exactitud": 0.6684
+        }
+      }
+    }
+  }
+}

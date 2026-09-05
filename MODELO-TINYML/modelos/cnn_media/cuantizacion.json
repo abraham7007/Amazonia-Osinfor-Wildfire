@@ -1,0 +1,59 @@
+{
+  "float32": {
+    "bytes": 594736,
+    "entrada": {
+      "forma": [
+        1,
+        96,
+        96,
+        3
+      ],
+      "tipo": "float32",
+      "escala_punto_cero": [
+        0.0,
+        0
+      ]
+    },
+    "salida": {
+      "forma": [
+        1,
+        1
+      ],
+      "tipo": "float32",
+      "escala_punto_cero": [
+        0.0,
+        0
+      ]
+    },
+    "n_tensores": 52
+  },
+  "int8": {
+    "bytes": 203104,
+    "entrada": {
+      "forma": [
+        1,
+        96,
+        96,
+        3
+      ],
+      "tipo": "int8",
+      "escala_punto_cero": [
+        1.0,
+        -128
+      ]
+    },
+    "salida": {
+      "forma": [
+        1,
+        1
+      ],
+      "tipo": "int8",
+      "escala_punto_cero": [
+        0.00390625,
+        -128
+      ]
+    },
+    "n_tensores": 54
+  },
+  "parametros_keras": 148929
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "elem": "V1 · MCU TinyML (ESP32-S3+OV2640)",
+    "esquema": "1h",
+    "whd": 0.203,
+    "bat_ah": 0.058,
+    "panel_wp": 0.17
+  },
+  {
+    "elem": "V1 · MCU TinyML (ESP32-S3+OV2640)",
+    "esquema": "3h",
+    "whd": 0.197,
+    "bat_ah": 0.057,
+    "panel_wp": 0.16
+  },
+  {
+    "elem": "V1 · MCU TinyML (ESP32-S3+OV2640)",
+    "esquema": "adapt",
+    "whd": 0.218,
+    "bat_ah": 0.063,
+    "panel_wp": 0.18
+  },
+  {
+    "elem": "V2 · IA on-sensor (Himax/IMX500+ESP32)",
+    "esquema": "1h",
+    "whd": 0.304,
+    "bat_ah": 0.087,
+    "panel_wp": 0.25
+  },
+  {
+    "elem": "V2 · IA on-sensor (Himax/IMX500+ESP32)",
+    "esquema": "3h",
+    "whd": 0.295,
+    "bat_ah": 0.085,
+    "panel_wp": 0.24
+  },
+  {
+    "elem": "V2 · IA on-sensor (Himax/IMX500+ESP32)",
+    "esquema": "adapt",
+    "whd": 0.326,
+    "bat_ah": 0.094,
+    "panel_wp": 0.27
+  },
+  {
+    "elem": "V3a · NPU gated (RPi5+Hailo, MCU-wake)",
+    "esquema": "1h",
+    "whd": 1.322,
+    "bat_ah": 0.38,
+    "panel_wp": 1.08
+  },
+  {
+    "elem": "V3a · NPU gated (RPi5+Hailo, MCU-wake)",
+    "esquema": "3h",
+    "whd": 0.762,
+    "bat_ah": 0.219,
+    "panel_wp": 0.62
+  },
+  {
+    "elem": "V3a · NPU gated (RPi5+Hailo, MCU-wake)",
+    "esquema": "adapt",
+    "whd": 2.582,
+    "bat_ah": 0.742,
+    "panel_wp": 2.11
+  },
+  {
+    "elem": "V3b · NPU always-on (RPi5+Hailo diurno)",
+    "esquema": "1h",
+    "whd": 40.8,
+    "bat_ah": 11.719,
+    "panel_wp": 33.31
+  },
+  {
+    "elem": "V3b · NPU always-on (RPi5+Hailo diurno)",
+    "esquema": "3h",
+    "whd": 40.8,
+    "bat_ah": 11.719,
+    "panel_wp": 33.31
+  },
+  {
+    "elem": "V3b · NPU always-on (RPi5+Hailo diurno)",
+    "esquema": "adapt",
+    "whd": 40.8,
+    "bat_ah": 11.719,
+    "panel_wp": 33.31
+  }
+]
