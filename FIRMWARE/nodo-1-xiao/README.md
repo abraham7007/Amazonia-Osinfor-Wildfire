@@ -23,7 +23,13 @@ cd FIRMWARE/nodo-1-xiao/01-placa
 pio run -t upload -t monitor
 ```
 
-No hay que elegir entorno: cada proyecto ya está fijado a esta placa.
+No hay que elegir entorno: cada proyecto ya está fijado a esta placa, y el código
+que se graba está en su propio `src/`.
+
+> El código de cada etapa es **idéntico** al de `nodo-2-ne101`: todo lo que
+> cambia entre placas vive en `../comun/librerias/placa/src/placa.h`. Si tocas una
+> etapa aquí, pasa `python3 ../comun/verificar_copias.py` para no dejar los dos
+> nodos ejecutando cosas distintas.
 Cada firmware imprime lo que encuentra, da un veredicto y se queda esperando;
 `r` + ENTER lo repite sin volver a grabar.
 

@@ -46,19 +46,35 @@ Cada firmware imprime lo que encuentra, da un veredicto y se queda esperando:
 
 ```
 FIRMWARE/
+  nodo-1-xiao/        11 proyectos, fijados al XIAO
+    01-placa/
+      platformio.ini
+      src/main.cpp    el código que se carga en la placa
+    ...
+  nodo-2-ne101/       11 proyectos, fijados al NE101
   comun/
     librerias/        ocho librerías compartidas
-    etapas/           el código de cada etapa, UNA sola copia
-  nodo-1-xiao/        11 proyectos, fijados al XIAO
-  nodo-2-ne101/       11 proyectos, fijados al NE101
+    verificar_copias.py
   pruebas-host/       25 pruebas unitarias en el PC, sin placa
   herramientas/       decoder del servidor y generación de vectores
 ```
 
-Los 22 proyectos comparten el mismo código: cada `platformio.ini` apunta con
-`src_dir` a `comun/etapas/<etapa>/`. Así hay una carpeta clara por nodo **sin**
-veintidós copias que puedan divergir. Lo único que cambia entre nodos vive en
-[`comun/librerias/placa/src/placa.h`](comun/librerias/placa/src/placa.h).
+Cada proyecto es autocontenido: tiene su `platformio.ini` y su `src/`, y ahí está
+todo el código que se graba. No hay que saltar a ninguna otra carpeta para leerlo.
+
+**El código de cada etapa es idéntico en los dos nodos**, y debe seguir siéndolo:
+todo lo que cambia entre placas vive en
+[`comun/librerias/placa/src/placa.h`](comun/librerias/placa/src/placa.h). El precio
+de tener dos copias es que pueden divergir sin que nadie se entere —alguien
+arregla un fallo en un nodo y se olvida del otro—, así que hay un verificador:
+
+```bash
+python3 FIRMWARE/comun/verificar_copias.py
+# y si algo se desvió, tomando un nodo como bueno:
+python3 FIRMWARE/comun/verificar_copias.py --sincronizar nodo-1-xiao
+```
+
+Conviene pasarlo antes de cada commit que toque el código de una etapa.
 
 | Librería | Qué es |
 |---|---|
