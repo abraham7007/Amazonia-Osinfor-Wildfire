@@ -10,7 +10,7 @@ definida en `protocolo-lorawan.md` §3.1.
 
 ## Por qué no se usó `Dataset-Fire`
 
-El conjunto que ya estaba en el proyecto (`AMAZONIA-OSINFOR/Dataset-Fire`, 5 853
+El conjunto que ya estaba en el proyecto (`GESTION/07-datos/dataset-fire`, 5 853
 `fire` / 9 755 `not_fire`) no sirve para entrenar este modelo, aunque a primera
 vista lo parezca:
 
@@ -27,7 +27,7 @@ vista lo parezca:
   sobre bosque etiquetada como negativa.
 
 Sigue siendo útil para el taller comunitario (ver
-`fire_dataset/seleccion_taller_comunidad/`), que es para lo que se seleccionó.
+`GESTION/07-datos/dataset-fire/`), que es para lo que se seleccionó.
 
 ## Qué se usa en su lugar
 
@@ -304,7 +304,7 @@ Por orden de impacto sobre el resultado del piloto:
    dos tablas de arriba (88 % vs 47 % de detección a dos horas). Basta una cámara
    fija capturando cada 15 min durante la estación seca: da el dominio local, la
    niebla amazónica real y los negativos duros del sitio. El taller comunitario ya
-   preparado (`fire_dataset/seleccion_taller_comunidad/`) encaja aquí como
+   preparado (`GESTION/07-datos/dataset-fire/`) encaja aquí como
    mecanismo de recolección participativa.
 2. **Medir latencia y consumo por inferencia en el ESP32-S3** (EVT). Con 32
    teselas por captura y 48 capturas diarias son ~1 500 inferencias/día, un

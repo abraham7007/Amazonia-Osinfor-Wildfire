@@ -73,7 +73,7 @@ la concesión capacitados, con una hoja de ruta técnica y financiera para la co
 ## 6. Estado de adquisiciones y documentación
 
 - **Compra 1 (bienes):** equipos Edge AI + LoRaWAN — adquiridos.
-- **Compra 2 (bienes):** kits solares + baterías — EETT cerrado (carpeta `COMPRA 2`).
+- **Compra 2 (bienes):** kits solares + baterías — EETT cerrado (carpeta `GESTION/02-compras/02-paneles-solares-baterias`).
 - **Diseño e ingeniería:** documentación técnica del nodo y gateway (carpeta `DISEÑO E INGENIERIA`).
 - **Servicios (TDR):** dos servicios por definir a partir del **presupuesto detallado (Excel)** del
   proyecto. *Pendiente de cargar el archivo para identificarlos.*

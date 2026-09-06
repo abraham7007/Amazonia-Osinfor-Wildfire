@@ -30,7 +30,7 @@ _spec.loader.exec_module(cons)
 RAIZ = Path(__file__).resolve().parent.parent
 ORIGEN = RAIZ / "datos" / "pyro-sdis"
 SALIDA = RAIZ / "muestras"
-DESCARTADO = Path("/Users/mecatronica/Documents/edgeForest/AMAZONIA-OSINFOR/Dataset-Fire")
+DESCARTADO = RAIZ.parent / "GESTION" / "07-datos" / "dataset-fire"
 CAMARAS = {"brison-20", "courmettes-212", "serre-de-barre-108"}  # nunca entrenadas
 MAX_CUADROS = 1100
 LADO_JPEG = 200
