@@ -1,0 +1,5 @@
+# Artefactos de compilacion de PlatformIO: uno por proyecto.
+.pio/
+.pioenvs/
+.piolibdeps/
+.vscode/
