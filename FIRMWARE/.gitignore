@@ -3,3 +3,6 @@
 .pioenvs/
 .piolibdeps/
 .vscode/
+
+# Credenciales reales del gateway. Se parte de comun/credenciales.ini.ejemplo.
+comun/credenciales.ini

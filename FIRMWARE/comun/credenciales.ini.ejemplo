@@ -1,0 +1,17 @@
+; Credenciales del punto de acceso del gateway UG67.
+;
+; COPIA ESTE FICHERO COMO `credenciales.ini` EN ESTA MISMA CARPETA y pon ahi los
+; valores reales. `credenciales.ini` esta en .gitignore y no se sube nunca.
+;
+;     cp comun/credenciales.ini.ejemplo comun/credenciales.ini
+;
+; Si no existe, la etapa 10 compila igual con los valores de marcador que trae
+; el codigo y el enlace fallara al no encontrar la red: es el comportamiento
+; deseado, mejor que publicar una clave real en un repositorio.
+
+[gateway]
+build_flags =
+    -DGW_SSID=\"NOMBRE_DE_LA_RED\"
+    -DGW_CLAVE=\"CLAVE_DE_LA_RED\"
+    -DGW_IP=\"192.168.10.1\"
+    -DGW_PUERTO=8888

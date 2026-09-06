@@ -59,8 +59,9 @@ y Wi-Fi HaLow, **no LoRa**. Ninguna de las dos puede hablar LoRaWAN con el gatew
 Milesight UG67 sin añadir una radio SX126x que **no está en el BOM adjudicado**.
 
 Y es lo que ya ocurrió en la práctica: el prototipo del informe de implementación
-**no usa LoRaWAN**. Usa el UG67 como punto de acceso Wi-Fi (`OSINFOR1_GW`,
-192.168.10.1) y envía un JSON por **socket TCP al puerto 8888** hacia Node-RED.
+**no usa LoRaWAN**. Usa el UG67 como punto de acceso Wi-Fi y envía un JSON por **socket TCP al
+puerto 8888** hacia Node-RED. (Las credenciales del AP no van en este
+repositorio: ver `FIRMWARE/comun/credenciales.ini.ejemplo`.)
 Funciona, pero es una arquitectura distinta de la documentada, con otro alcance y
 otro consumo.
 

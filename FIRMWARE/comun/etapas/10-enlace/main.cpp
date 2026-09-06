@@ -16,15 +16,18 @@
 #include "placa.h"
 #include "informe.h"
 
-// Credenciales del AP del gateway. Se definen en platformio.ini para que esten
-// en un unico sitio visible y no repartidas por el codigo. El repositorio es
-// privado, pero aun asi conviene cambiarlas antes de cualquier despliegue real:
-// son las que vienen del informe de implementacion del prototipo.
+// Credenciales del AP del gateway.
+//
+// Los valores reales NO estan aqui ni en ninguna parte del repositorio: se leen
+// de comun/credenciales.ini, que no se versiona (plantilla en
+// comun/credenciales.ini.ejemplo). Lo de abajo son marcadores para que la etapa
+// compile aunque ese fichero no exista; el enlace fallara al no encontrar la
+// red, que es exactamente lo que debe pasar.
 #if !defined(GW_SSID)
-#define GW_SSID "OSINFOR1_GW"
+#define GW_SSID "RED_SIN_CONFIGURAR"
 #endif
 #if !defined(GW_CLAVE)
-#define GW_CLAVE "osinfor1234#"
+#define GW_CLAVE "CLAVE_SIN_CONFIGURAR"
 #endif
 #if !defined(GW_IP)
 #define GW_IP "192.168.10.1"

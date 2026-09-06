@@ -85,11 +85,13 @@ capturas igual que el humo.
 
 ## Nota sobre este repositorio
 
-Es **privado** y contiene únicamente el trabajo técnico. Quedan fuera, a propósito,
-el dataset (10 GB, se regenera con `01_descargar_pyro_sdis.py` y
-`02_construir_dataset.py`), el entorno virtual, las trazas de entrenamiento y toda
-la documentación administrativa del proyecto. Ver [`.gitignore`](.gitignore).
+Contiene únicamente el trabajo técnico. Quedan fuera, a propósito, el dataset
+(10 GB, se regenera con `01_descargar_pyro_sdis.py` y `02_construir_dataset.py`),
+el entorno virtual, las trazas de entrenamiento y toda la documentación
+administrativa del proyecto. Ver [`.gitignore`](.gitignore).
 
-Contiene las credenciales del punto de acceso del gateway del prototipo
-(`FIRMWARE/pruebas-hardware/platformio.ini`, sección `[gateway]`). Están en un solo
-sitio para poder cambiarlas; conviene hacerlo antes de cualquier despliegue real.
+**No contiene credenciales.** Las del punto de acceso del gateway se leen de
+`FIRMWARE/comun/credenciales.ini`, que no se versiona; hay una plantilla en
+`credenciales.ini.ejemplo`. El historial anterior a este cambio sí las tuvo, así
+que la clave que allí aparece debe considerarse comprometida y estar ya cambiada
+en el equipo.

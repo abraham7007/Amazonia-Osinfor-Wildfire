@@ -110,5 +110,13 @@ la trama por serie, hasta que `ADR-001` decida. Ver
 placa que CamThink no publica. Está explicado en
 [`nodo-2-ne101/README.md`](nodo-2-ne101/README.md).
 
-**Las credenciales del gateway** están en `<nodo>/10-enlace/platformio.ini`,
-sección `[gateway]`. Conviene cambiarlas antes de cualquier despliegue real.
+**Las credenciales del gateway no están en este repositorio.** La etapa 10 las
+lee de `comun/credenciales.ini`, que no se versiona. Para configurarlas:
+
+```bash
+cp FIRMWARE/comun/credenciales.ini.ejemplo FIRMWARE/comun/credenciales.ini
+# y edita ese fichero con el SSID y la clave reales
+```
+
+Sin él, la etapa 10 compila con valores de marcador y el enlace falla al no
+encontrar la red, que es lo que debe pasar.
