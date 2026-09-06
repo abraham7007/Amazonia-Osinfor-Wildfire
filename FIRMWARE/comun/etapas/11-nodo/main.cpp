@@ -23,6 +23,7 @@
 //        v
 //   camara off -> radio off -> deep-sleep con el intervalo que toque
 
+#include <Arduino.h>
 #include <stdarg.h>
 #include <stdio.h>
 
@@ -30,7 +31,7 @@
 #include "deteccion.h"
 #include "energia.h"
 #include "estado_persistente.h"
-#include "hal_camara.h"
+#include "camara.h"
 #include "hal_energia.h"
 #include "hal_lora.h"
 #include "hal_tiempo.h"

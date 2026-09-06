@@ -24,3 +24,7 @@ int motor_inferir();
 
 // Bytes de arena efectivamente usados; util para dimensionar en EVT.
 size_t motor_arena_usada();
+
+// true si la arena no cupo en SRAM interna y quedo en PSRAM, que es mas lenta.
+// Cambia el coste por inferencia y, con el, el presupuesto energetico.
+bool motor_arena_en_psram();

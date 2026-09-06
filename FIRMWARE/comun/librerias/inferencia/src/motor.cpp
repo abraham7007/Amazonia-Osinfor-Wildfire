@@ -3,6 +3,8 @@
 
 #include "config.h"
 #include "modelo_humo_int8.h"
+#include <esp_heap_caps.h>
+
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 #include "tensorflow/lite/schema/schema_generated.h"
@@ -15,8 +17,20 @@ namespace {
 // MAX_POOL_2D, MEAN, FULLY_CONNECTED, LOGISTIC.
 constexpr int kNumOps = 8;
 
-alignas(16) uint8_t g_arena[ARENA_TENSORES_BYTES];
+// La arena NO puede ser un array estatico. Con 320 KB reservados en DRAM, el
+// enlazador falla antes de llegar a la placa:
+//
+//     region `dram0_0_seg' overflowed by 65656 bytes
+//
+// El ESP32-S3 tiene 512 KB de SRAM interna, pero el segmento de datos que
+// comparten Arduino, la pila de Wi-Fi y el propio FreeRTOS deja bastante menos
+// libre. Reservandola en ejecucion se toma lo que de verdad haya: primero SRAM
+// interna, que es lo deseable porque TFLM la recorre en cada inferencia, y si no
+// cabe, PSRAM. La etapa 02 comprueba cual de los dos casos se da en cada placa,
+// y la 05 mide lo que cuesta la diferencia.
+uint8_t *g_arena = nullptr;
 
+bool g_arena_en_psram = false;
 tflite::MicroInterpreter *g_interprete = nullptr;
 TfLiteTensor *g_entrada = nullptr;
 TfLiteTensor *g_salida = nullptr;
@@ -26,6 +40,17 @@ bool g_listo = false;
 
 bool motor_iniciar() {
   if (g_listo) return true;
+
+  if (g_arena == nullptr) {
+    g_arena = (uint8_t *)heap_caps_aligned_alloc(16, ARENA_TENSORES_BYTES,
+                                                 MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT);
+    if (g_arena == nullptr) {
+      g_arena = (uint8_t *)heap_caps_aligned_alloc(16, ARENA_TENSORES_BYTES,
+                                                   MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
+      g_arena_en_psram = true;
+    }
+    if (g_arena == nullptr) return false;
+  }
 
   const tflite::Model *modelo = tflite::GetModel(modelo_humo_int8);
   if (modelo->version() != TFLITE_SCHEMA_VERSION) return false;
@@ -40,7 +65,7 @@ bool motor_iniciar() {
   if (resolver.AddFullyConnected() != kTfLiteOk) return false;
   if (resolver.AddLogistic() != kTfLiteOk) return false;
 
-  static tflite::MicroInterpreter interprete(modelo, resolver, g_arena, sizeof(g_arena));
+  static tflite::MicroInterpreter interprete(modelo, resolver, g_arena, ARENA_TENSORES_BYTES);
   if (interprete.AllocateTensors() != kTfLiteOk) return false;
 
   g_interprete = &interprete;
@@ -70,4 +95,6 @@ int motor_inferir() {
 }
 
 size_t motor_arena_usada() { return g_listo ? g_interprete->arena_used_bytes() : 0; }
+
+bool motor_arena_en_psram() { return g_arena_en_psram; }
 
