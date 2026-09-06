@@ -1,0 +1,8 @@
+{
+  "name": "plataforma",
+  "version": "1.0.0",
+  "description": "Implementacion ESP32-S3 de lo que el nucleo declara: memoria grande en PSRAM, reloj, estado de carga, memoria RTC y deep-sleep.",
+  "frameworks": "arduino",
+  "platforms": "espressif32",
+  "dependencies": [{"name": "nucleo"}, {"name": "placa"}]
+}

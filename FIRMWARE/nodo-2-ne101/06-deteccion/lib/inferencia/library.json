@@ -1,0 +1,8 @@
+{
+  "name": "inferencia",
+  "version": "1.0.0",
+  "description": "Frontera con TFLite-Micro. Toda la dependencia de TFLM vive detras de cuatro funciones.",
+  "frameworks": "arduino",
+  "platforms": "espressif32",
+  "dependencies": [{"name": "modelo"}, {"name": "nucleo"}]
+}

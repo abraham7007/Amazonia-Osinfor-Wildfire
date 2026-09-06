@@ -1,0 +1,7 @@
+{
+  "name": "modelo",
+  "version": "1.0.0",
+  "description": "cnn_media cuantizado a INT8 (198 KiB) como arreglo C. Generado por MODELO-TINYML/scripts/04_cuantizar_tflite.py.",
+  "frameworks": "*",
+  "platforms": "*"
+}

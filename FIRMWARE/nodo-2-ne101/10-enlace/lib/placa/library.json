@@ -1,0 +1,7 @@
+{
+  "name": "placa",
+  "version": "1.0.0",
+  "description": "Perfil de cada nodo: pinout de camara, memoria, perifericos. Lo unico que difiere entre el XIAO ESP32S3 Sense y el NeoEyes NE101 vive aqui.",
+  "frameworks": "arduino",
+  "platforms": "espressif32"
+}

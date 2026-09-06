@@ -1,0 +1,8 @@
+{
+  "name": "informe",
+  "version": "1.0.0",
+  "description": "Salida por serie de las etapas de puesta en marcha: ok / fallo / dato, cabecera y veredicto.",
+  "frameworks": "arduino",
+  "platforms": "espressif32",
+  "dependencies": [{"name": "placa"}]
+}

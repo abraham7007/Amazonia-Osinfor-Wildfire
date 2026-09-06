@@ -13,6 +13,7 @@
 #include <Arduino.h>
 #include <esp_heap_caps.h>
 
+#include "config.h"
 #include "modelo_humo_int8.h"
 #include "placa.h"
 #include "informe.h"
@@ -22,8 +23,11 @@
 
 namespace {
 
-constexpr int kEntrada = 96;
-constexpr size_t kArenaBytes = 320 * 1024;
+// Se leen de config.h, que es el unico sitio donde estan definidos. Tenerlos a
+// mano aqui haria que esta etapa midiera una geometria distinta de la que
+// ejecuta el nodo en cuanto alguien tocara config.h, sin que nada avisara.
+constexpr int kEntrada = ENTRADA_PX;
+constexpr size_t kArenaBytes = ARENA_TENSORES_BYTES;
 constexpr int kRepeticiones = 20;
 
 uint8_t *g_arena = nullptr;

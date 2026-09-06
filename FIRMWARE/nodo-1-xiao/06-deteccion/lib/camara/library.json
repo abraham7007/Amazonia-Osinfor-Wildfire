@@ -1,0 +1,22 @@
+{
+  "name": "camara",
+  "version": "1.0.0",
+  "description": "Captura a 1280x720 y conversion a RGB888 sobre esp32-camera, con el pinout de la placa activa.",
+  "frameworks": "arduino",
+  "platforms": "espressif32",
+  "dependencies": [
+    {
+      "name": "placa"
+    },
+    {
+      "name": "nucleo"
+    },
+    {
+      "name": "plataforma"
+    },
+    {
+      "owner": "espressif",
+      "name": "esp32-camera"
+    }
+  ]
+}

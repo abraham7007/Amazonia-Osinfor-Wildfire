@@ -48,33 +48,51 @@ Cada firmware imprime lo que encuentra, da un veredicto y se queda esperando:
 FIRMWARE/
   nodo-1-xiao/        11 proyectos, fijados al XIAO
     01-placa/
-      platformio.ini
-      src/main.cpp    el código que se carga en la placa
+      platformio.ini  la placa, los flags, nada que apunte fuera
+      src/main.cpp    el código que se graba
+      lib/            las librerías que esta etapa necesita
+        placa/
+        informe/
     ...
   nodo-2-ne101/       11 proyectos, fijados al NE101
   comun/
-    librerias/        ocho librerías compartidas
+    librerias/        las ocho librerías, versión de referencia
     verificar_copias.py
   pruebas-host/       25 pruebas unitarias en el PC, sin placa
   herramientas/       decoder del servidor y generación de vectores
 ```
 
-Cada proyecto es autocontenido: tiene su `platformio.ini` y su `src/`, y ahí está
-todo el código que se graba. No hay que saltar a ninguna otra carpeta para leerlo.
+**Cada proyecto es autocontenido.** Tiene su `platformio.ini`, su `src/` y su
+`lib/` con las librerías que usa —sólo las que usa: `01-placa` lleva dos y
+`06-deteccion` ocho—. Puedes copiar una carpeta a cualquier sitio, fuera incluso
+del repositorio, y compila. Nada apunta hacia afuera.
 
-**El código de cada etapa es idéntico en los dos nodos**, y debe seguir siéndolo:
-todo lo que cambia entre placas vive en
-[`comun/librerias/placa/src/placa.h`](comun/librerias/placa/src/placa.h). El precio
-de tener dos copias es que pueden divergir sin que nadie se entere —alguien
-arregla un fallo en un nodo y se olvida del otro—, así que hay un verificador:
+### El precio, y cómo se controla
+
+Hay copias: once etapas por dos nodos, y 82 copias de librería repartidas entre
+los 22 proyectos. Dos copias pueden divergir sin que nadie se entere —alguien
+arregla un fallo en un proyecto y se olvida de los demás— y a partir de ahí los
+nodos ejecutan cosas distintas mientras el informe dice que ejecutan lo mismo.
+
+Lo más delicado es `placa`, donde viven los pinout: si alguien corrige
+`PLACA_SD_PIN_CS` en un proyecto, los otros diez de ese nodo se quedan con el
+valor viejo. Por eso hay un verificador, y **conviene pasarlo antes de cada commit
+que toque código o librerías**:
 
 ```bash
 python3 FIRMWARE/comun/verificar_copias.py
-# y si algo se desvió, tomando un nodo como bueno:
-python3 FIRMWARE/comun/verificar_copias.py --sincronizar nodo-1-xiao
 ```
 
-Conviene pasarlo antes de cada commit que toque el código de una etapa.
+```
+src: las 11 etapas coinciden en los dos nodos
+lib: las 82 copias coinciden con comun/librerias/
+
+todo coincide
+```
+
+La referencia es `comun/librerias/` para las librerías y `nodo-1-xiao` para el
+código de las etapas. Si algo se desvió, `--sincronizar` rehace las copias desde
+ahí. **Edita siempre la referencia y sincroniza**, no una copia suelta.
 
 | Librería | Qué es |
 |---|---|

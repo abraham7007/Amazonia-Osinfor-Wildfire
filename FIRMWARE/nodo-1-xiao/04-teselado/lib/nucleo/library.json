@@ -1,0 +1,7 @@
+{
+  "name": "nucleo",
+  "version": "1.0.0",
+  "description": "Nucleo portable del nodo: teselado, remuestreo con paridad Pillow, tramas y politica de energia. Sin dependencias del SoC.",
+  "frameworks": "*",
+  "platforms": "*"
+}
